@@ -1,4 +1,3 @@
-# appium-boilerplate
 
 > **NOTE:**
 > This boilerplate is for Webdriver V5, if you need a boilerplate for V4 please click [here](https://github.com/webdriverio/appium-boilerplate/tree/v4)
@@ -7,28 +6,18 @@ Boilerplate project to run Appium tests together with WebdriverIO for:
 
 - iOS/Android Native Apps
 - iOS/Android Hybrid Apps
-- Android Chrome and iOS Safari browser ([check here](./README.md#automating-chrome-or-safari))
 
 > This boilerplate uses the WebdriverIO native demo app which can be found [here](https://github.com/webdriverio/native-demo-app).
 > The releases can be found and downloaded [here](https://github.com/webdriverio/native-demo-app/releases).
 > Before running tests, please create a `./apps` directory, download the app and move the zip files into that directory
 
 > **Note:**
-> This boilerplate only handles local execution on 1 em/simulator at a time, not parallel execution. For more info about that Google on setting up a grid with Appium.
-
-![webdriverio-demo-app-ios.ios](./docs/assets/appium-tests.gif)
 
 ## Based on
 This boilerplate is currently based on:
 - **WebdriverIO:** `5.12.#`
 - **Appium:** `1.14.#`
 
-
-## Installing Appium on a local machine
-See [Installing Appium on a local machine](./docs/APPIUM.md)
-
-## Setting up Android and iOS on a local machine
-To setup your local machine to use an Android emulator and an iOS simulator see [Setting up Android and iOS on a local machine](./docs/ANDROID_IOS_SETUP.md)
 
 ## Quick start
 Choose one of the following options:
@@ -41,7 +30,22 @@ Choose one of the following options:
 
 4. merge the scripts to your `package.json` scripts
 
-5. Run the tests for iOS with `npm run ios.app` and for Android with `npm run android.app`
+5. copy the apps down to your project 
+
+6. Run the tests for iOS with `npm run ios.app` and for Android with `npm run android.app`
+
+7. edit the following files
+
+appium-boilerplate/config/saucelabs/wdio.android.rdc.app.conf.js
+appium-boilerplate/config/saucelabs/wdio.ios.rdc.app.conf.js
+
+where the line says  testobject_app_name be sure to name it to the be actual name of the project in TestObjects, below is an example
+
+ testobject_app_name: 'ian-wdio-demo-app',
+
+ 
+
+
 
 ## Config
 This boilerplate uses a specific config for iOS and Android, see [configs](./config/) and are based on `wdio.shared.conf.js`.
@@ -69,13 +73,6 @@ const SELECTORS = {
         : '*//XCUIElementTypeWebView',
 };
 ```
-
-## Automating Chrome or Safari
-Mobile web automation is almost the same as writing tests for desktop browsers. The only difference can be found in the configuration that needs to be used.
-Click [here](./config/wdio.ios.browser.conf.js) to find the config for iOS Safari and [here](./config/wdio.android.browser.conf.js) for Android Chrome.
-For Android be sure that the lastest version of Chrome is installed, see also [here](./docs/FAQ.md#i-get-the-error-no-chromedriver-found-that-can-automate-chrome-).
-
-For this boilerplate the testcases from the [jasmine-boilerplte](https://github.com/webdriverio/jasmine-boilerplate), created by [Christian Bromann](https://github.com/christian-bromann), are used.
 
 ## Cloud vendors
 
